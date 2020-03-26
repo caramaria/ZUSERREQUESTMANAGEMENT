@@ -1,0 +1,131 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:core="sap.ui.core"
+	controllerName="ZUSERREQUESTMANAGEMENT.ZUSERREQUESTMANAGEMENT.controller.ZUSERREQUESTMANAGEMENT" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>userrequestTitle}">
+				<content>
+					
+					<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="userrequestForm">
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveGridLayout id="layout2"/>
+						</sap.ui.layout.form:layout>
+						<sap.ui.layout.form:formContainers>
+							<sap.ui.layout.form:FormContainer title="{i18n>credentials}" id="credentials">
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement label="{i18n>gender}" id="textGender" >
+										<sap.ui.layout.form:fields>
+											<Select id="Select_Anrede_id" items="{ path: 'selectAnredeData>/'}" enabled="true" visible="{= ${viewModel>/mode} === 'edit'? false: true}"
+												forceSelection="false" selectedKey="{ path : 'Organisation/Title', type : 'sap.ui.model.type.String', constraints : { minLength : 1 }}"
+												width="90%">
+												<core:Item key="{selectAnredeData>key}" text="{selectAnredeData>text}"/>
+											</Select>
+											<Input required="true" visible="false" width="0%"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>prefix}" id="textPrefix">
+										<sap.ui.layout.form:fields>
+											<Select id="Select_Titel_id" items="{ path: 'selectTitleData>/'}" enabled="true" visible="{= ${viewModel>/mode} === 'edit'? false: true}"
+												forceSelection="false" change="onTitelSelect" selectedKey="{ path : 'Organisation/TitleAca', type : 'sap.ui.model.type.String'}" width="44.5%">
+												<core:Item key="{selectTitleData>key}" text="{selectTitleData>text}"/>
+											</Select>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>lastname}" id="textLastName">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputLastName" value="{basicInfo>/lastName}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>firstname}" id="textFirstname">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputFirstname" value="{basicInfo>/firstName}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>birthday}" id="textBirthday">
+										<sap.ui.layout.form:fields>
+											<DatePicker width="90%" id="inputBirthday" dateValue="{basicInfo>/birthday}" displayFormat="medium" placeholder="TT.MM.JJJJ" valueFormat="yyyy-MM-ddTHH:mm:ss" />
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>birthplace}" id="textBirthplace">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputBirthplace" value="{basicInfo>/birthplace}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>street}" id="textStreet">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputSreet" value="{basicInfo>/street}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>no}" id="bo">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="no" value="{basicInfo>/housenumber}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>city}" id="textCity">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputCity" value="{basicInfo>/city}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>plz}" id="textPlz">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputPlz" value="{basicInfo>/plz}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>phoneWork}" id="textPhoneWork">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputPhoneWork" value="{basicInfo>/phoneWork}" required="true"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>phone}" id="textPhone">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputPhone" value="{basicInfo>/phone}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>fax}" id="textFax">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputFax" value="{basicInfo>/fax}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>email}" id="testEmail">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" type="Email" id="inputEmail" value="{basicInfo>/email}" required="true" change="emailVerification"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>password}" id="textPassword">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputPasswprd" type="Password" value="{basicInfo>/password1}" required="true" tooltip="{i18n>passwordPolicy}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement label="{i18n>password2}" id="textPassword2">
+										<sap.ui.layout.form:fields>
+											<Input width="90%" id="inputPasswprd2" type="Password" value="{basicInfo>/password2}" required="true" tooltip="{i18n>passwordPolicy}"/>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+						</sap.ui.layout.form:formContainers>
+					</sap.ui.layout.form:Form>
+					
+					
+					
+
+					
+					<FlexBox width="100%" id="infos" justifyContent="Start">
+						<VBox width="100%">
+							<Label xmlns="sap.m" text="{i18n>mandatoryFields}" id="mandatoryFields" class="sapUiSmallMargin" wrapping="true"/>
+							<Label xmlns="sap.m" text="{i18n>passwordPolicy}" id="passwordPolicy" class="sapUiSmallMargin" wrapping="true"/>
+							<HBox width="100%">
+								<CheckBox xmlns="sap.m" selected="{basicInfo>/privacyCheck}" id="privacyCheckbox" class="sapUiSmallMargin" textAlign="Center"/>
+								<FormattedText htmlText="{privacyStatement>/HTML}" class="sapUiSmallMargin"/>
+							</HBox>
+							<HBox width="80%" justifyContent="Center" class="sapUiMediumMargin">
+								<Button xmlns="sap.m" text="{i18n>cancel}" id="buttonCancel" press="onCancel" class="sapUiLargeMargin"/>
+								<Button xmlns="sap.m" text="{i18n>submit}" id="buttonSubmit2" press="onSubmit" class="sapUiLargeMargin" type="Accept"/>
+							</HBox>
+						</VBox>
+					</FlexBox>
+				
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

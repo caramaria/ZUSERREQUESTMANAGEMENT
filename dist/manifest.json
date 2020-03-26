@@ -1,0 +1,162 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "ZUSERREQUESTMANAGEMENT.ZUSERREQUESTMANAGEMENT",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "servicecatalog.connectivityComponentForManifest",
+            "version": "0.0.0"
+        },
+        "dataSources": {
+            "USERREQUESTMANAGEMENT": {
+                "uri": "/sap/opu/odata/sap/ZOA_USERREQUESTMANAGEMENT/",
+                "type": "OData",
+                "settings": {
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "ZUSERREQUESTMANAGEMENT.ZUSERREQUESTMANAGEMENT.view.ZUSERREQUESTMANAGEMENT",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ZUSERREQUESTMANAGEMENT.ZUSERREQUESTMANAGEMENT.i18n.i18n"
+                }
+            },
+            "userRequestModel": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneWay",
+                    "defaultCountMode": "Request",
+                    "useBatch": false,
+                    "headers": {
+                        "X-REQUESTED-WITH": "XMLHttpRequest"
+                    }
+                },
+                "dataSource": "USERREQUESTMANAGEMENT",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ZUSERREQUESTMANAGEMENT.ZUSERREQUESTMANAGEMENT.view",
+                "controlAggregation": "pages",
+                "controlId": "idAppControl",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteZUSERREQUESTMANAGEMENT",
+                    "pattern": "RouteZUSERREQUESTMANAGEMENT",
+                    "target": [
+                        "TargetZUSERREQUESTMANAGEMENT"
+                    ]
+                },
+                {
+                    "name": "ACTIVATIONSUCCESS",
+                    "pattern": "ACTIVATIONSUCCESS",
+                    "target": [
+                        "ACTIVATIONSUCCESS"
+                    ]
+                },
+                {
+                    "name": "RESETPASSWORD",
+                    "pattern": "RESETPASSWORD",
+                    "target": [
+                        "RESETPASSWORD"
+                    ]
+                },
+                {
+                    "name": "REGISTERSUCCESS",
+                    "pattern": "REGISTERSUCCESS",
+                    "target": [
+                        "REGISTERSUCCESS"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetZUSERREQUESTMANAGEMENT": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewName": "ZUSERREQUESTMANAGEMENT"
+                },
+                "ACTIVATIONSUCCESS": {
+                    "viewType": "XML",
+                    "viewName": "ACTIVATIONSUCCESS"
+                },
+                "testview": {
+                    "viewType": "XML",
+                    "viewName": "testview"
+                },
+                "RESETPASSWORD": {
+                    "viewType": "XML",
+                    "viewName": "RESETPASSWORD"
+                },
+                "REGISTERSUCCESS": {
+                    "viewType": "XML",
+                    "viewName": "REGISTERSUCCESS"
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zuserrequestmg/webapp",
+        "_version": "1.1.0"
+    }
+}

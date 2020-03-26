@@ -1,0 +1,100 @@
+{
+    "resources": [
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "controller/ZUSERREQUESTMANAGEMENT.controller.js"
+        },
+        {
+            "name": "controller/RESETPASSWORD.controller.js"
+        },
+        {
+            "name": "controller/REGISTERSUCCESS.controller.js"
+        },
+        {
+            "name": "controller/ACTIVATIONSUCCESS.controller.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "controller/REGISTERSUCCESS-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ZUSERREQUESTMANAGEMENT-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/RESETPASSWORD-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ACTIVATIONSUCCESS-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/ZUSERREQUESTMANAGEMENT.view.xml"
+        },
+        {
+            "name": "view/RESETPASSWORD.view.xml"
+        },
+        {
+            "name": "view/REGISTERSUCCESS.view.xml"
+        },
+        {
+            "name": "view/ACTIVATIONSUCCESS.view.xml"
+        },
+        {
+            "name": "resources/Datenschutzerklaerung_Kulturamt_Foerderprogramm.pdf"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

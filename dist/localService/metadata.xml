@@ -1,0 +1,31 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="USERREQUESTMANAGEMENT" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="UserRequest" sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Request ID" sap:creatable="false"/><Property Name="UserName" Type="Edm.String" MaxLength="40" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="User Name"/><Property Name="FirstName" Type="Edm.String" MaxLength="60" sap:label="Name"/><Property Name="LastName" Type="Edm.String" MaxLength="60" sap:label="Name"/><Property Name="EmailAddress" Type="Edm.String" MaxLength="241" sap:label="Email Address"/><Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:label="Phone Number"/><Property Name="UsrCategory" Type="Edm.String" MaxLength="3" sap:label="User Category"/><Property Name="Password" Type="Edm.String" MaxLength="40" sap:label="Passcode"/><Property Name="StatusCode" Type="Edm.String" MaxLength="2" sap:label="Status Code" sap:creatable="false"/></EntityType>
+			<EntityType Name="UserCategory" sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="User Category"/><Property Name="Description" Type="Edm.String" MaxLength="255" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="User Category Text"/></EntityType>
+			<EntityType Name="UserRequestActivationRequest" sap:content-version="1">
+				<Key><PropertyRef Name="RequestID"/></Key><Property Name="RequestID" Type="Edm.String" Nullable="false" MaxLength="32" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="Request ID" sap:creatable="false"/><Property Name="ActivationKey" Type="Edm.String" MaxLength="40" sap:label="Activation ID"/><Property Name="Password" Type="Edm.String" MaxLength="40" sap:label="Password"/></EntityType>
+			<EntityType Name="UserCredentialResetStatus" sap:content-version="1">
+				<Key><PropertyRef Name="UserName"/></Key><Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="40" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="User Name" sap:creatable="false"/><Property Name="ResetStatus" Type="Edm.Boolean" sap:label="Reset Status"/></EntityType>
+			<EntityType Name="UserCredentialResetUsingEmail" sap:content-version="1">
+				<Key><PropertyRef Name="UserEmailID"/></Key><Property Name="UserEmailID" Type="Edm.String" Nullable="false" MaxLength="241" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true"
+					sap:label="Email Address" sap:creatable="false"/><Property Name="ResetCredentials" Type="Edm.Boolean" sap:label="Reset Status"/></EntityType>
+			<EntityContainer Name="USERREQUESTMANAGEMENT_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="UserRequestCollection" EntityType="USERREQUESTMANAGEMENT.UserRequest" sap:updatable="false" sap:content-version="1"/><EntitySet Name="UserCategoryCollection" EntityType="USERREQUESTMANAGEMENT.UserCategory" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="UserRequestActivationRequestCollection" EntityType="USERREQUESTMANAGEMENT.UserRequestActivationRequest"
+				sap:creatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="UserCredentialResetStatusCollection" EntityType="USERREQUESTMANAGEMENT.UserCredentialResetStatus" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="UserCredentialResetUsingEmailCollection" EntityType="USERREQUESTMANAGEMENT.UserCredentialResetUsingEmail"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+				<FunctionImport Name="ResetUserCredential" ReturnType="USERREQUESTMANAGEMENT.UserCredentialResetStatus"
+					EntitySet="UserCredentialResetStatusCollection" m:HttpMethod="POST"><Parameter Name="UserName" Type="Edm.String" Mode="In" MaxLength="60"/></FunctionImport>
+				<FunctionImport Name="ResetUserCredentialUsingEmail" ReturnType="USERREQUESTMANAGEMENT.UserCredentialResetUsingEmail"
+					EntitySet="UserCredentialResetUsingEmailCollection" m:HttpMethod="POST"><Parameter Name="UserEmailID" Type="Edm.String" Mode="In" MaxLength="241"/></FunctionImport>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./iwbep/USERREQUESTMANAGEMENT/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./iwbep/USERREQUESTMANAGEMENT/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
